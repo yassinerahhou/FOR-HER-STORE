@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Soft Warm Studio Gradient -->
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffefb" />
+      <stop offset="50%" stop-color="#f7f2ea" />
+      <stop offset="100%" stop-color="#e9dfd0" />
+    </linearGradient>
+
+    <!-- Milky Fluid Bottle Body Gradient -->
+    <linearGradient id="milkBottle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#fcf8f2" />
+      <stop offset="100%" stop-color="#eee5d8" />
+    </linearGradient>
+
+    <!-- Dark Matte Pump Cap Gradient -->
+    <linearGradient id="darkCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#252525" />
+      <stop offset="50%" stop-color="#404040" />
+      <stop offset="100%" stop-color="#1c1c1c" />
+    </linearGradient>
+
+    <filter id="softShadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#252525" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="url(#bgGrad3)" />
+
+  <!-- Shadow Base -->
+  <ellipse cx="250" cy="435" rx="80" ry="15" fill="#252525" opacity="0.13" filter="blur(8px)" />
+
+  <!-- Main Pump Bottle Group -->
+  <g filter="url(#softShadow3)">
+    <!-- Pump Nozzle Head -->
+    <path d="M 215,95 L 285,95 Q 295,95 295,105 L 295,115 L 215,115 Z" fill="url(#darkCap)" />
+    <!-- Vertical Pump Stem -->
+    <rect x="242" y="115" width="16" height="30" fill="#252525" />
+
+    <!-- Pump Collar Ring -->
+    <rect x="220" y="145" width="60" height="20" fill="url(#darkCap)" rx="3" />
+
+    <!-- Tall Milk Bottle Body -->
+    <rect x="185" y="165" width="130" height="255" rx="14" fill="url(#milkBottle)" stroke="#252525" stroke-width="0.75" stroke-opacity="0.15" />
+
+    <!-- Label Box -->
+    <rect x="200" y="225" width="100" height="150" fill="#fffdf9" rx="2" stroke="#252525" stroke-width="0.75" stroke-opacity="0.2" />
+
+    <!-- Label Text -->
+    <text x="250" y="255" font-family="'Marcellus', 'Georgia', serif" font-size="14" font-weight="bold" fill="#252525" text-anchor="middle" letter-spacing="1">GAOUĀHER</text>
+    <line x1="220" y1="265" x2="280" y2="265" stroke="#b87760" stroke-width="1" />
+    <text x="250" y="284" font-family="'Space Mono', monospace" font-size="7.5" fill="#b87760" text-anchor="middle" letter-spacing="1.2">JARDINS DE MAJORELLE</text>
+    <text x="250" y="298" font-family="'Space Mono', monospace" font-size="7.5" fill="#252525" text-anchor="middle" letter-spacing="1">BODY MILK</text>
+
+    <text x="250" y="335" font-family="'Space Mono', monospace" font-size="6.5" fill="#252525" opacity="0.6" text-anchor="middle">250 ML / 8.5 FL OZ</text>
+    <text x="250" y="352" font-family="'Space Mono', monospace" font-size="6" fill="#b87760" text-anchor="middle">ORANGE BLOSSOM</text>
+  </g>
+</svg>

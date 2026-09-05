@@ -36,3 +36,9 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+*.tar.gz
+*.tsbuildinfo
+.site-package/
+.site-package-2/
+*.cjs
+

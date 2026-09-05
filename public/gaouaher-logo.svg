@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" width="600" height="140">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Marcellus&amp;display=swap');
+      .brand-title {
+        font-family: 'Marcellus', 'Georgia', serif;
+        font-size: 84px;
+        font-weight: 400;
+        fill: #252525;
+        letter-spacing: 5px;
+      }
+    </style>
+  </defs>
+  
+  <!-- Transparent Background -->
+  <rect width="100%" height="100%" fill="none" />
+  
+  <!-- Clean Luxury Wordmark without Dot -->
+  <g text-anchor="middle">
+    <text x="300" y="95" class="brand-title">Gaouāher</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="balmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffdf8" />
+      <stop offset="50%" stop-color="#f5ede3" />
+      <stop offset="100%" stop-color="#e3d6c5" />
+    </linearGradient>
+
+    <linearGradient id="terracottaJar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9816b" />
+      <stop offset="50%" stop-color="#ab644e" />
+      <stop offset="100%" stop-color="#7a3e2b" />
+    </linearGradient>
+
+    <linearGradient id="blackMatteLid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f1f1f" />
+      <stop offset="50%" stop-color="#3d3d3d" />
+      <stop offset="100%" stop-color="#141414" />
+    </linearGradient>
+
+    <filter id="balmShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="18" flood-color="#252525" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#balmBg)" />
+
+  <ellipse cx="250" cy="415" rx="125" ry="20" fill="#252525" opacity="0.15" filter="blur(9px)" />
+
+  <g filter="url(#balmShadow)">
+    <rect x="150" y="160" width="200" height="55" rx="8" fill="url(#blackMatteLid)" />
+    <rect x="140" y="215" width="220" height="175" rx="16" fill="url(#terracottaJar)" />
+    <rect x="170" y="250" width="160" height="110" fill="#fffdf9" rx="3" stroke="#252525" stroke-width="0.75" stroke-opacity="0.2" />
+
+    <text x="250" y="278" font-family="'Marcellus', 'Georgia', serif" font-size="16" font-weight="bold" fill="#252525" text-anchor="middle" letter-spacing="1">GAOUĀHER</text>
+    <line x1="210" y1="288" x2="290" y2="288" stroke="#b87760" stroke-width="1" />
+    <text x="250" y="306" font-family="'Space Mono', monospace" font-size="8" fill="#b87760" text-anchor="middle" letter-spacing="1.5">DESERT DATE</text>
+    <text x="250" y="320" font-family="'Space Mono', monospace" font-size="8" fill="#252525" text-anchor="middle" letter-spacing="1">BIO-RETINOL BALM</text>
+
+    <text x="250" y="346" font-family="'Space Mono', monospace" font-size="7" fill="#252525" opacity="0.6" text-anchor="middle">50 ML / 1.7 FL OZ</text>
+  </g>
+</svg>

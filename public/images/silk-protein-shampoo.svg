@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="shampooBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffdfa" />
+      <stop offset="50%" stop-color="#f4eee5" />
+      <stop offset="100%" stop-color="#e5dbc9" />
+    </linearGradient>
+
+    <linearGradient id="pearlBottle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#fcf9f2" />
+      <stop offset="80%" stop-color="#f2e9dc" />
+      <stop offset="100%" stop-color="#e2d4c0" />
+    </linearGradient>
+
+    <linearGradient id="goldPump" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b87760" />
+      <stop offset="50%" stop-color="#eac6b8" />
+      <stop offset="100%" stop-color="#8a4d3a" />
+    </linearGradient>
+
+    <filter id="shampooShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="18" flood-color="#252525" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#shampooBg)" />
+
+  <!-- Shadow Base -->
+  <ellipse cx="250" cy="430" rx="80" ry="16" fill="#252525" opacity="0.13" filter="blur(8px)" />
+
+  <!-- Shampoo Bottle Group -->
+  <g filter="url(#shampooShadow)">
+    <!-- Metallic Pump Dispenser Head -->
+    <path d="M 215,90 L 285,90 Q 295,90 295,100 L 295,110 L 215,110 Z" fill="url(#goldPump)" />
+    <rect x="242" y="110" width="16" height="35" fill="#252525" />
+    <rect x="220" y="145" width="60" height="20" fill="url(#goldPump)" rx="3" />
+
+    <!-- Sleek Pearlized Bottle Body -->
+    <rect x="180" y="165" width="140" height="255" rx="14" fill="url(#pearlBottle)" stroke="#252525" stroke-width="0.75" stroke-opacity="0.15" />
+
+    <!-- Clean Label Area -->
+    <rect x="196" y="225" width="108" height="150" fill="#fffdf9" rx="2" stroke="#252525" stroke-width="0.75" stroke-opacity="0.2" />
+
+    <!-- Typography -->
+    <text x="250" y="255" font-family="'Marcellus', 'Georgia', serif" font-size="14" font-weight="bold" fill="#252525" text-anchor="middle" letter-spacing="1">GAOUĀHER</text>
+    <line x1="215" y1="265" x2="285" y2="265" stroke="#b87760" stroke-width="1" />
+    <text x="250" y="284" font-family="'Space Mono', monospace" font-size="7.5" fill="#b87760" text-anchor="middle" letter-spacing="1.2">ARGAN & SILK</text>
+    <text x="250" y="298" font-family="'Space Mono', monospace" font-size="7.5" fill="#252525" text-anchor="middle" letter-spacing="1">PROTEIN SHAMPOO</text>
+
+    <text x="250" y="335" font-family="'Space Mono', monospace" font-size="6.5" fill="#252525" opacity="0.6" text-anchor="middle">250 ML / 8.5 FL OZ</text>
+    <text x="250" y="352" font-family="'Space Mono', monospace" font-size="6" fill="#b87760" text-anchor="middle">SULFATE FREE</text>
+  </g>
+</svg>

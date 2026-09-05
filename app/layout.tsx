@@ -1,20 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { CartProvider } from '@/lib/cart-context';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { CartDrawer } from '@/components/cart-drawer';
+import { QuickViewModal } from '@/components/quick-view-modal';
+import { SearchOverlay } from '@/components/search-overlay';
+import { ToastNotification } from '@/components/toast-notification';
 
 export const metadata: Metadata = {
-  title: 'GAOUAHER — Moroccan care with clarity',
-  description: 'High-performance skin, hair and body care made in Morocco.',
+  title: 'GAOUAHER — High-Performance Moroccan Luxury Botanicals',
+  description: 'High-performance botanical care infused with Moroccan heritage. Formulated with cold-pressed wild Argan, Damask Rose, and Atlas minerals.',
 };
 
 export default function RootLayout({
@@ -24,10 +20,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="bg-[#fffdf9] text-[#252525] min-h-screen flex flex-col font-sans antialiased">
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+
+          {/* Persistent Global Overlays */}
+          <CartDrawer />
+          <QuickViewModal />
+          <SearchOverlay />
+          <ToastNotification />
+        </CartProvider>
       </body>
     </html>
   );

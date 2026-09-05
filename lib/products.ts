@@ -1,13 +1,618 @@
-export type Category = 'Skincare' | 'Hair' | 'Body' | 'Ritual Sets';
-export type Product = { id:string; name:string; category:Category; price:number; size:string; tone:string; ritual:string; description:string; texture:string; ingredients:string[]; howTo:string; benefits:string[] };
+export type Category = 
+  | 'Skincare'
+  | 'Face Care'
+  | 'Body Care'
+  | 'Hair Care'
+  | 'Fragrance'
+  | 'Makeup'
+  | 'Moroccan Beauty'
+  | 'Gift Sets';
 
-export const products: Product[] = [
- {id:'source-water',name:'Source Water Serum',category:'Skincare',price:420,size:'30 ml',tone:'aqua',ritual:'A clear first step',description:'A buoyant hydration serum that restores the look of fresh, rested skin without a trace of weight.',texture:'A cool, fluid gel-serum that disappears into skin in seconds.',ingredients:['Prickly pear polysaccharides','Multi-weight hyaluronic acid','Niacinamide'],howTo:'Press two pumps into clean skin morning and evening, before moisturiser.',benefits:['Plumps','Brightens','Settles']},
- {id:'veil-mineral',name:'Veil Mineral Cream',category:'Skincare',price:380,size:'50 ml',tone:'stone',ritual:'Comfort, refined',description:'A breathable daily cream that cushions skin while leaving its natural light intact.',texture:'Whipped, elastic cream with a soft satin finish.',ingredients:['Magnesium PCA','Squalane','Desert date lipid'],howTo:'Warm a pearl-sized amount between hands and press over serum.',benefits:['Cushions','Softens','Protects']},
- {id:'clarity-milk',name:'Clarity Cleansing Milk',category:'Skincare',price:260,size:'150 ml',tone:'chalk',ritual:'The quietest clean',description:'A milky, non-stripping cleanser that lifts the day while preserving a calm skin barrier.',texture:'Velvet milk that emulsifies with water into a whisper-light rinse.',ingredients:['Oat lipids','Rosewater ferment','Bisabolol'],howTo:'Massage onto dry skin, add water, then rinse or remove with a warm cloth.',benefits:['Cleanses','Comforts','Balances']},
- {id:'bloom-scalp',name:'Bloom Scalp Essence',category:'Hair',price:310,size:'60 ml',tone:'green',ritual:'Begin at the root',description:'A daily leave-in scalp treatment designed to make the root feel balanced, fresh and receptive.',texture:'An airy, precision-drop liquid with no residue.',ingredients:['Caffeine complex','Neroli leaf water','Pea peptides'],howTo:'Part dry or damp hair and apply six to eight drops directly to the scalp. Massage in.',benefits:['Refreshes','Supports','Rebalances']},
- {id:'soft-light',name:'Soft Light Body Oil',category:'Body',price:290,size:'100 ml',tone:'coral',ritual:'A finishing touch',description:'A fast-absorbing body oil that gives skin a nourished, softly illuminated finish.',texture:'Silken dry oil with a warm, sheer slip.',ingredients:['Argan squalane','Apricot kernel oil','Vitamin E'],howTo:'Smooth over damp skin after bathing or wherever skin needs a little return of light.',benefits:['Nourishes','Smooths','Illuminates']},
- {id:'first-light',name:'The First Light Set',category:'Ritual Sets',price:890,size:'3 pieces',tone:'blue',ritual:'An everyday ritual',description:'Three essential gestures for a clearer, more comfortable complexion from first cleanse to final veil.',texture:'A complete texture wardrobe: milk, fluid serum and satin cream.',ingredients:['Clarity Cleansing Milk','Source Water Serum','Veil Mineral Cream'],howTo:'Use in the presented order, morning and evening.',benefits:['Cleanse','Hydrate','Seal']},
+export type CollectionName = 
+  | 'GAOUAHER Signature'
+  | 'The Argan Collection'
+  | 'The Rose Collection'
+  | 'The Atlas Ritual Collection'
+  | 'The Majorelle Collection';
+
+export type Product = {
+  id: string;
+  name: string;
+  subtitle: string;
+  category: Category;
+  collection: CollectionName;
+  price: number;
+  originalPrice?: number;
+  size: string;
+  tone: 'gold' | 'clay' | 'rose' | 'amber' | 'emerald' | 'blue' | 'pearl' | 'onyx';
+  image: string;
+  description: string;
+  texture: string;
+  ingredients: string[];
+  howTo: string;
+  benefits: string[];
+  rating: number;
+  reviewCount: number;
+  badge?: string;
+  isBestSeller?: boolean;
+  isNew?: boolean;
+  isFeatured?: boolean;
+  isMoroccanHeritage?: boolean;
+};
+
+export const categories: Category[] = [
+  'Skincare',
+  'Face Care',
+  'Body Care',
+  'Hair Care',
+  'Fragrance',
+  'Makeup',
+  'Moroccan Beauty',
+  'Gift Sets'
 ];
 
-export const formatMad=(price:number)=>new Intl.NumberFormat('en-US').format(price)+' MAD';
+export const collections: { name: CollectionName; description: string; tag: string; image: string }[] = [
+  {
+    name: 'GAOUAHER Signature',
+    description: 'Our iconic hero formulas engineered for luminous vitality and skin longevity.',
+    tag: 'Hero Formulation',
+    image: '/images/hero_gaouaher_banner.png'
+  },
+  {
+    name: 'The Argan Collection',
+    description: 'Cold-pressed wild Argan kernels harvested in Southwestern Morocco, rich in lipid nutrients.',
+    tag: 'Liquid Gold Heritage',
+    image: '/images/argan_elixir.png'
+  },
+  {
+    name: 'The Rose Collection',
+    description: 'High-altitude Damask Rose hydro-distillates from the Kelaat M\'Gouna valley.',
+    tag: 'Petal Infused Light',
+    image: '/images/gaouaher-source-still-life.png'
+  },
+  {
+    name: 'The Atlas Ritual Collection',
+    description: 'Centuries-old hammam purifiers: Ghassoul clay, raw eucalyptus black soap, and botanical scrubs.',
+    tag: 'Purifying Hammam Care',
+    image: '/images/ghassoul_mask.png'
+  },
+  {
+    name: 'The Majorelle Collection',
+    description: 'Exotic orange blossom, vibrant blue Nila minerals, and rare desert botanicals.',
+    tag: 'Sensory Botanicals',
+    image: '/images/hero_gaouaher_banner.png'
+  }
+];
+
+export const products: Product[] = [
+  {
+    id: 'argan-gold-elixir',
+    name: 'Pure Argan Youth Elixir',
+    subtitle: '100% Organic Cold-Pressed Argan Kernel Concentrate',
+    category: 'Moroccan Beauty',
+    collection: 'The Argan Collection',
+    price: 490,
+    originalPrice: 580,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'gold',
+    image: '/images/argan_elixir.png',
+    description: 'Harvested from UNESCO-protected wild argan groves in Southwestern Morocco. Extracted through first cold pressing to preserve ultra-dense essential fatty acids and natural Vitamin E.',
+    texture: 'Rich golden silk that absorbs instantly without weight or greasy residue.',
+    ingredients: ['100% Pure Argania Spinosa Kernel Oil', 'Tocopherol (Natural Vitamin E)', 'Essential Phytosterols'],
+    howTo: 'Warm 3-4 drops between palm cushions. Press gently onto clean face, neck, and chest morning and evening.',
+    benefits: ['Deeply restorative lipid cushion', 'Protects against environmental oxidation', 'Enhances skin elasticity & glow'],
+    rating: 4.96,
+    reviewCount: 342,
+    badge: 'Iconic Best Seller',
+    isBestSeller: true,
+    isFeatured: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'atlas-ghassoul-mask',
+    name: 'Atlas Ghassoul Detoxifying Clay Mask',
+    subtitle: 'Volcanic Mineral Clay & Damask Rose Hydrosol',
+    category: 'Face Care',
+    collection: 'The Atlas Ritual Collection',
+    price: 380,
+    size: '120 g / 4.2 oz.',
+    tone: 'clay',
+    image: '/images/ghassoul_mask.png',
+    description: 'Sourced from ancient subterranean beds in the Moroccan Atlas mountains. This mineral-dense clay draws out impurities while conditioning the skin barrier.',
+    texture: 'Cushiony velvet paste with a calming earthy rose scent.',
+    ingredients: ['Moroccan Lava Clay (Ghassoul)', 'Rosa Damascena Flower Water', 'Aloe Barbadensis Leaf Juice', 'Zinc PCA'],
+    howTo: 'Apply a generous, even layer over damp face avoiding eyes. Rest for 10 minutes until tacky, then massage with warm water to rinse clean.',
+    benefits: ['Refines visible pore appearance', 'Balances excess sebum without tightness', 'Smooths micro-texture gently'],
+    rating: 4.92,
+    reviewCount: 215,
+    badge: 'Award Winner',
+    isBestSeller: true,
+    isFeatured: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'source-water-serum',
+    name: 'Source Water Hydration Serum',
+    subtitle: 'Prickly Pear Polysaccharides & Hyaluronic Complex',
+    category: 'Skincare',
+    collection: 'GAOUAHER Signature',
+    price: 520,
+    size: '30 ml / 1.0 fl. oz.',
+    tone: 'pearl',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'A breakthrough cellular hydration serum infused with wild prickly pear seed mucilage and multi-molecular weight hyaluronic acid.',
+    texture: 'Cooling fluid gel that bursts into water on contact.',
+    ingredients: ['Opuntia Ficus-Indica Seed Extract', 'Sodium Hyaluronate', 'Niacinamide 5%', 'Panthenol (Pro-Vitamin B5)'],
+    howTo: 'Dispense 2 pumps onto damp skin prior to moisturizing. Smooth gently over face and neck.',
+    benefits: ['Intense 72-hour moisture locking', 'Visibly plumps fine dryness lines', 'Soothes redness and stress'],
+    rating: 4.98,
+    reviewCount: 410,
+    badge: 'Cult Favorite',
+    isBestSeller: true,
+    isFeatured: true
+  },
+  {
+    id: 'rose-cloud-essence',
+    name: 'Damask Rose Cloud Essence',
+    subtitle: 'Steam-Distilled Kelaa Rose Hydrosol & Niacinamide',
+    category: 'Face Care',
+    collection: 'The Rose Collection',
+    price: 360,
+    size: '150 ml / 5.1 fl. oz.',
+    tone: 'rose',
+    image: '/images/rose-cloud-essence-photo.png',
+    description: 'Hand-picked Damask rose petals from the Valley of Roses distilled at dawn. Calms, illuminates, and prepares skin for optimal product absorption.',
+    texture: 'Weightless micro-mist with a natural wild rose aroma.',
+    ingredients: ['Rosa Damascena Flower Water', 'Fermented Rose Extract', 'Betaine', 'Glycerin'],
+    howTo: 'Mist liberally across face after cleansing or throughout the day for an instant boost of radiance.',
+    benefits: ['Immediate soothing moisture', 'Balances natural pH level', 'Leaves skin luminous and dew-kissed'],
+    rating: 4.89,
+    reviewCount: 184,
+    badge: 'New Launch',
+    isNew: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'velvet-black-soap',
+    name: 'Velvet Eucalyptus Black Soap Balm',
+    subtitle: 'Crushed Black Olive Paste & Wild Eucalyptus',
+    category: 'Body Care',
+    collection: 'The Atlas Ritual Collection',
+    price: 320,
+    size: '200 g / 7.0 oz.',
+    tone: 'amber',
+    image: '/images/ghassoul_mask.png',
+    description: 'A modernized luxury formulation of traditional Beldi black soap. Rich in olive squalane and crushed leaf lipids to melt away dull dead cells during warm showers.',
+    texture: 'Rich cushioned gel-balm that emulsifies into a silky lather.',
+    ingredients: ['Saponified Olive Oil', 'Eucalyptus Globulus Leaf Oil', 'Black Olive Pulp', 'Plant Glycerin'],
+    howTo: 'Warm a walnut-sized portion between palms. Massage onto warm, steamed skin in shower or bath. Leave for 5 minutes, then scrub with kessa glove.',
+    benefits: ['Polishes skin to touchable softness', 'Opens pores for deep purification', 'Invigorates mind and senses'],
+    rating: 4.95,
+    reviewCount: 290,
+    badge: 'Hammam Classic',
+    isBestSeller: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'medina-night-parfum',
+    name: 'Medina Night Eau de Parfum',
+    subtitle: 'Golden Amber, Orange Blossom & Smoky Oud',
+    category: 'Fragrance',
+    collection: 'GAOUAHER Signature',
+    price: 890,
+    originalPrice: 950,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'onyx',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'An enchanting fragrance capturing dusk in Marrakech. Luminous neroli blossoms open into warm golden amber, rare cedarwood, and velvet night musk.',
+    texture: 'Extrait concentration eau de parfum mist.',
+    ingredients: ['Moroccan Neroli', 'Atlas Cedarwood', 'Warm Amber Accord', 'Rare Oud Extract', 'Iris Concrete'],
+    howTo: 'Mist onto key pulse points: wrists, collarbones, and behind knees. Do not rub.',
+    benefits: ['Intimate 12+ hour sillage', 'Unisex luxury sensory profile', 'Hand-poured crystal bottle'],
+    rating: 4.97,
+    reviewCount: 156,
+    badge: 'Signature Scent',
+    isFeatured: true
+  },
+  {
+    id: 'nila-brightening-elixir',
+    name: 'Royal Blue Nila Brightening Serum',
+    subtitle: 'Moroccan Sahara Nila Clay & Alpha Arbutin',
+    category: 'Skincare',
+    collection: 'The Majorelle Collection',
+    price: 460,
+    size: '30 ml / 1.0 fl. oz.',
+    tone: 'blue',
+    image: '/images/argan_elixir.png',
+    description: 'Infused with Sahara Blue Nila stone powder—a secret Moroccan beauty ritual for centuries. Target hyperpigmentation, sun spots, and uneven complexion tone.',
+    texture: 'Silky luminous blue fluid that blends seamlessly into transparent glow.',
+    ingredients: ['Sahara Nila Mineral Powder', 'Alpha Arbutin 2%', 'Prickly Pear Oil', 'Vitamin C Ester'],
+    howTo: 'Apply 3 drops onto target areas or all over face prior to moisturizers at night.',
+    benefits: ['Fades stubborn dark spots', 'Unifies skin complexion tone', 'Restores translucent glow'],
+    rating: 4.94,
+    reviewCount: 167,
+    badge: 'Heritage Secret',
+    isNew: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'saffron-radiance-oil',
+    name: 'Taliouine Saffron Radiance Night Oil',
+    subtitle: 'Organic Moroccan Saffron Stigmas & Rosehip Seed Oil',
+    category: 'Face Care',
+    collection: 'GAOUAHER Signature',
+    price: 680,
+    size: '30 ml / 1.0 fl. oz.',
+    tone: 'gold',
+    image: '/images/argan_elixir.png',
+    description: 'Harvested in Taliouine, the saffron heartland of Morocco. Rich in crocin and antioxidants, this golden night serum re-energizes tired, dull complexions overnight.',
+    texture: 'Velvet oil drops with a comforting spiced botanical fragrance.',
+    ingredients: ['Taliouine Saffron Extract', 'Cold-Pressed Rosehip Seed Oil', 'Bakuchiol 1%', 'Squalane'],
+    howTo: 'Warm 3 drops between fingers and press onto cleansed face as the final step of evening skincare ritual.',
+    benefits: ['Dramatic morning luminosity', 'Natural retinol-like smoothing', 'Deep cellular revitalization'],
+    rating: 4.99,
+    reviewCount: 203,
+    badge: 'Luxury Hero',
+    isFeatured: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'neroli-cloud-cream',
+    name: 'Orange Blossom Hydrating Cloud Cream',
+    subtitle: 'Moroccan Neroli Hydrosol & Ceramides',
+    category: 'Face Care',
+    collection: 'The Majorelle Collection',
+    price: 440,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'pearl',
+    image: '/images/neroli-cloud-cream-photo.png',
+    description: 'A whip-light whipped moisture cream that cushions fragile skin barrier. Infused with delicate orange blossom flowers harvested from citrus groves.',
+    texture: 'Whipped cloud cream that melts into weightless moisture barrier.',
+    ingredients: ['Moroccan Citrus Aurantium Water', 'Ceramide NP/AP/EOP Complex', 'Desert Date Seed Oil', 'Squalane'],
+    howTo: 'Smooth a pearl-sized amount over cleansed face and neck morning and night.',
+    benefits: ['Strengthens fragile lipid barrier', 'Provides velvety matte hydration', 'Calms sensory stress'],
+    rating: 4.88,
+    reviewCount: 142,
+    badge: 'Customer Choice'
+  },
+  {
+    id: 'argan-silk-hair-oil',
+    name: 'Crown Argan & Rosemary Hair Elixir',
+    subtitle: 'Nourishing Lengths & Scalp Thickening Treatment',
+    category: 'Hair Care',
+    collection: 'The Argan Collection',
+    price: 390,
+    size: '100 ml / 3.4 fl. oz.',
+    tone: 'amber',
+    image: '/images/argan_elixir.png',
+    description: 'Multi-tasking hair treatment oil combining pure Argan oil with Moroccan Rosemary extract to strengthen roots, seal split ends, and impart mirror gloss.',
+    texture: 'Lightweight glossing oil with zero oily weigh-down.',
+    ingredients: ['Pure Argan Oil', 'Rosmarinus Officinalis Leaf Extract', 'Camellia Seed Oil', 'Sweet Almond Oil'],
+    howTo: 'For scalp care: massage into roots 30 mins before washing. For dry lengths: rub 2 drops between palms and smooth onto ends daily.',
+    benefits: ['Protects against heat & breakage', 'Restores silk-like softness', 'Promotes dense scalp growth'],
+    rating: 4.93,
+    reviewCount: 310,
+    badge: 'Best Seller',
+    isBestSeller: true
+  },
+  {
+    id: 'rose-sugar-body-polish',
+    name: 'Kelaa Rose & Sugar Body Exfoliator',
+    subtitle: 'Organic Cane Sugar & Pink Damask Rose Petals',
+    category: 'Body Care',
+    collection: 'The Rose Collection',
+    price: 340,
+    size: '250 g / 8.8 oz.',
+    tone: 'rose',
+    image: '/images/ghassoul_mask.png',
+    description: 'A dreamy body scrub made with delicate sugar crystals, ground rose petals, and nourishing shea butter. Gently buff away dryness while leaving a silky fragrance trail.',
+    texture: 'Luscious buttery scrub paste with real crushed rose petals.',
+    ingredients: ['Fine Cane Sugar', 'Rosa Damascena Petal Powder', 'Organic Shea Butter', 'Sweet Almond Oil'],
+    howTo: 'Massage onto damp skin in circular motions during warm bath. Rinse clean with warm water.',
+    benefits: ['Smooths rough skin elbows & knees', 'Leaves skin glowing & velvety', 'Delightful aromatherapy'],
+    rating: 4.91,
+    reviewCount: 178,
+    badge: 'Popular'
+  },
+  {
+    id: 'orange-blossom-body-milk',
+    name: 'Jardins de Majorelle Body Milk',
+    subtitle: 'Orange Blossom Water & Cupuaçu Butter',
+    category: 'Body Care',
+    collection: 'The Majorelle Collection',
+    price: 310,
+    size: '250 ml / 8.5 fl. oz.',
+    tone: 'pearl',
+    image: '/images/orange-blossom-body-milk-photo.png',
+    description: 'An elegant fast-absorbing body lotion inspired by the lush botanical gardens of Marrakech. Infused with pure neroli hydrosol for all-day radiance.',
+    texture: 'Fluid cream that sinks into skin instantly.',
+    ingredients: ['Orange Blossom Water', 'Cupuaçu Seed Butter', 'Jojoba Oil', 'Niacinamide'],
+    howTo: 'Apply generously over clean body after bath or shower.',
+    benefits: ['24-hour weightless hydration', 'Non-sticky silky feel', 'Enchanting floral aroma'],
+    rating: 4.87,
+    reviewCount: 129
+  },
+  {
+    id: 'bloom-scalp-serum',
+    name: 'Bloom Neroli Scalp Revitalizer',
+    subtitle: 'Caffeine Complex & Pea Peptides',
+    category: 'Hair Care',
+    collection: 'The Majorelle Collection',
+    price: 350,
+    size: '60 ml / 2.0 fl. oz.',
+    tone: 'emerald',
+    image: '/images/argan_elixir.png',
+    description: 'A daily leave-in scalp treatment designed to stimulate hair follicles, rebalance scalp oil production, and enhance hair density at the root.',
+    texture: 'Clear non-oily water drops.',
+    ingredients: ['Caffeine 3%', 'Neroli Leaf Water', 'Pea Peptide Extract', 'Biotin'],
+    howTo: 'Section clean damp or dry hair and apply 1 dropper directly across scalp. Massage gently. Do not rinse.',
+    benefits: ['Reduces visible hair shedding', 'Soothes scalp itchiness & dryness', 'Boosts root volume'],
+    rating: 4.90,
+    reviewCount: 94,
+    isNew: true
+  },
+  {
+    id: 'red-clay-lip-tint',
+    name: 'Atlas Red Clay Tinted Lip & Cheek Balm',
+    subtitle: 'Natural Mineral Earth Pigment & Prickly Pear Butter',
+    category: 'Makeup',
+    collection: 'The Atlas Ritual Collection',
+    price: 240,
+    size: '10 g / 0.35 oz.',
+    tone: 'rose',
+    image: '/images/ghassoul_mask.png',
+    description: 'Inspired by traditional Moroccan Aker Fassi terracotta pots. Delivers a soft, natural flushed color to lips and cheeks while conditioning with botanical oils.',
+    texture: 'Buildable cushion balm with a soft satin finish.',
+    ingredients: ['Natural Red Terracotta Clay', 'Prickly Pear Seed Butter', 'Jojoba Oil', 'Pomegranate Flower Extract'],
+    howTo: 'Dab lightly with fingertips onto lips and apples of cheeks. Layer for richer rosy warmth.',
+    benefits: ['100% clean natural color', 'Deeply hydrates chapped lips', 'Multi-purpose touch-up essential'],
+    rating: 4.86,
+    reviewCount: 145,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'majorelle-parfum',
+    name: 'Jardins de Majorelle Eau de Parfum',
+    subtitle: 'Sunlit Orange Blossom, Bergamot & White Musk',
+    category: 'Fragrance',
+    collection: 'The Majorelle Collection',
+    price: 850,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'blue',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'A sparkling tribute to the iconic blue oasis of Marrakech. Radiant Mediterranean citrus blossoms combined with velvety white cedar and clean musk.',
+    texture: 'Extrait concentration eau de parfum mist.',
+    ingredients: ['Bergamot', 'Moroccan Orange Blossom', 'Petitgrain', 'White Musk', 'Cedarwood'],
+    howTo: 'Spray onto hair mist brush or neck pulse points for long-lasting daytime sillage.',
+    benefits: ['Uplifting sunlit floral warmth', 'Handmade cobalt blue glass bottle', 'Cruelty-free & vegan'],
+    rating: 4.95,
+    reviewCount: 112,
+    badge: 'Editor Pick'
+  },
+  {
+    id: 'rose-kelaa-parfum',
+    name: 'Rose de Kelaa Eau de Parfum',
+    subtitle: 'Valley Damask Rose, Vanilla Orchid & Atlas Sandalwood',
+    category: 'Fragrance',
+    collection: 'The Rose Collection',
+    price: 870,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'rose',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'The romantic essence of dawn in the Rose Valley. Freshly plucked pink Damask rose petals wrapped in warm bourbon vanilla and creamy sandalwood.',
+    texture: 'Extrait concentration eau de parfum mist.',
+    ingredients: ['Damask Rose Absolute', 'Bourbon Vanilla', 'Atlas Sandalwood', 'Pink Pepper', 'Cashmeran'],
+    howTo: 'Apply to pulse points prior to special evenings.',
+    benefits: ['Hypnotic floral elegance', 'Long-lasting projection', 'Recyclable crystal flask'],
+    rating: 4.98,
+    reviewCount: 167,
+    badge: 'Luxury Choice'
+  },
+  {
+    id: 'royal-hammam-box',
+    name: 'The Royal Hammam Box',
+    subtitle: 'Complete 4-Step Moroccan Bath Spa Ritual',
+    category: 'Gift Sets',
+    collection: 'The Atlas Ritual Collection',
+    price: 980,
+    originalPrice: 1180,
+    size: '4 Piece Deluxe Ritual Box',
+    tone: 'gold',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'Experience the authentic Moroccan hammam at home. Includes Velvet Black Soap (200g), Exfoliating Kessa Glove, Atlas Ghassoul Mask (120g), and Pure Argan Oil (50ml).',
+    texture: 'Complete luxury spa ritual gift set.',
+    ingredients: ['Velvet Black Soap', 'Atlas Ghassoul Clay', 'Pure Argan Oil', 'Organic Kessa Glove'],
+    howTo: 'Follow included ritual brochure for step-by-step home hammam pampering.',
+    benefits: ['Comprehensive body transformational care', 'Gold embossed presentation box', 'Saves 200 MAD vs individual items'],
+    rating: 5.0,
+    reviewCount: 238,
+    badge: 'Ultimate Gift',
+    isBestSeller: true,
+    isFeatured: true,
+    isMoroccanHeritage: true
+  },
+  {
+    id: 'golden-argan-trio',
+    name: 'The Golden Argan Heritage Set',
+    subtitle: 'Pure Argan Elixir, Hair Oil & Body Satin Oil',
+    category: 'Gift Sets',
+    collection: 'The Argan Collection',
+    price: 890,
+    originalPrice: 1040,
+    size: '3 Piece Full-Size Set',
+    tone: 'amber',
+    image: '/images/argan_elixir.png',
+    description: 'The complete liquid gold head-to-toe nourishment set. Formulated with 100% cold-pressed organic Moroccan argan kernel oil.',
+    texture: 'Full size luxury oil trio.',
+    ingredients: ['Pure Argan Youth Elixir 50ml', 'Crown Argan Hair Oil 100ml', 'Argan & Amber Body Oil 100ml'],
+    howTo: 'Use daily to nourish face, hair lengths, and dry body skin.',
+    benefits: ['Complete lipid barrier protection', 'Ideal luxury gift for loved ones', 'High value box set'],
+    rating: 4.97,
+    reviewCount: 182,
+    badge: 'Gift Choice',
+    isFeatured: true
+  },
+  {
+    id: 'luminous-rose-set',
+    name: 'The Luminous Rose Discovery Ritual',
+    subtitle: 'Rose Cloud Essence, Rose Polish & Rose Lip Oil',
+    category: 'Gift Sets',
+    collection: 'The Rose Collection',
+    price: 790,
+    originalPrice: 920,
+    size: '3 Piece Radiance Box',
+    tone: 'rose',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'Illuminate your skin with the calming power of high-altitude Damask rose hydro-distillates. Three essential rose-infused beauty steps.',
+    texture: 'Curated rose beauty trio box.',
+    ingredients: ['Damask Rose Cloud Essence 150ml', 'Rose & Sugar Body Exfoliator 250g', 'Velvet Rose Lip Serum 10ml'],
+    howTo: 'Use morning and evening for soothing petal soft radiance.',
+    benefits: ['Calms sensitive prone skin', 'Delicate sensory rose fragrance', 'Beautifully packaged box'],
+    rating: 4.93,
+    reviewCount: 119
+  },
+  {
+    id: 'velvet-rose-lip-serum',
+    name: 'Rose Glass Oil & Cushion Lip Serum',
+    subtitle: 'Rosehip Seed Oil & Hyaluronic Spheres',
+    category: 'Makeup',
+    collection: 'The Rose Collection',
+    price: 220,
+    size: '10 ml / 0.34 fl. oz.',
+    tone: 'rose',
+    image: '/images/rose-lip-serum-photo.png',
+    description: 'A glossy cushion lip treatment oil that coats lips in lightweight glass shine while plumping fine lip lines with hyaluronic spheres.',
+    texture: 'Non-tacky cushion glass oil.',
+    ingredients: ['Rosehip Seed Oil', 'Hyaluronic Filling Spheres', 'Jojoba Esters', 'Vitamin E'],
+    howTo: 'Glide applicator over bare lips or over lipstick for reflective mirror shine.',
+    benefits: ['Plumps lips visibly', 'No sticky hair-snagging residue', 'Nourishes dry winter lips'],
+    rating: 4.89,
+    reviewCount: 204,
+    isBestSeller: true
+  },
+  {
+    id: 'rose-gold-body-shimmer',
+    name: 'Atlas Sun Rose Gold Shimmer Oil',
+    subtitle: 'Ethical Mineral Mica & Moroccan Argan Squalane',
+    category: 'Makeup',
+    collection: 'The Majorelle Collection',
+    price: 360,
+    size: '100 ml / 3.4 fl. oz.',
+    tone: 'gold',
+    image: '/images/argan_elixir.png',
+    description: 'A luxurious body oil infused with ultra-fine rose gold mica particles. Gives legs, arms, and collarbones a luminous golden hour shimmer.',
+    texture: 'Dry body oil with golden sparkle.',
+    ingredients: ['Ethical Bronze Mica', 'Argan Squalane', 'Apricot Kernel Oil', 'Vanilla Planifolia'],
+    howTo: 'Shake bottle thoroughly before spraying onto skin. Blend over shoulders, legs, and chest.',
+    benefits: ['Sun-kissed golden hour glow', 'Quick dry non-staining formula', 'Captivating warm fragrance'],
+    rating: 4.91,
+    reviewCount: 153
+  },
+  {
+    id: 'silk-protein-shampoo',
+    name: 'Argan & Orange Blossom Silk Shampoo',
+    subtitle: 'Sulfate-Free Cleansing Cream with Silk Proteins',
+    category: 'Hair Care',
+    collection: 'The Argan Collection',
+    price: 280,
+    size: '250 ml / 8.5 fl. oz.',
+    tone: 'pearl',
+    image: '/images/silk-shampoo-photo.png',
+    description: 'A cushiony sulfate-free shampoo cream that gently lifts scalp oil without stripping essential natural lipids. Leaves hair bouncy, clean, and scented.',
+    texture: 'Low-foam milky wash cream.',
+    ingredients: ['Argan Oil', 'Hydrolyzed Silk Protein', 'Orange Blossom Water', 'Cocamidopropyl Betaine'],
+    howTo: 'Apply to thoroughly wet hair. Massage scalp gently into low-lather foam, then rinse thoroughly.',
+    benefits: ['Sulfate & silicone free formula', 'Safe for color treated hair', 'Leaves length silky soft'],
+    rating: 4.85,
+    reviewCount: 87
+  },
+  {
+    id: 'prickly-pear-night-cream',
+    name: 'Prickly Pear Cellular Renewal Night Cream',
+    subtitle: 'Moroccan Cactus Seed Extract & Bio-Retinol Bakuchiol',
+    category: 'Skincare',
+    collection: 'GAOUAHER Signature',
+    price: 590,
+    originalPrice: 650,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'emerald',
+    image: '/images/hero_gaouaher_banner.png',
+    description: 'Our most advanced anti-aging nocturnal treatment. Harnessing organic Prickly Pear cactus seed lipid oil—the world\'s richest source of Vitamin E.',
+    texture: 'Rich comforting night balm cream.',
+    ingredients: ['Prickly Pear Cactus Seed Oil', 'Bakuchiol 1.5%', 'Ceramide NP', 'Gotu Kola Extract'],
+    howTo: 'Warm a pea-sized amount between fingertips and smooth onto face and neck before sleep.',
+    benefits: ['Reduces appearance of deep wrinkles', 'Firming and skin contours lifting', 'Deep nocturnal repair'],
+    rating: 4.97,
+    reviewCount: 226,
+    badge: 'Premier Skincare',
+    isFeatured: true
+  },
+  {
+    id: 'argan-amber-body-oil',
+    name: 'Golden Amber & Argan Satin Body Oil',
+    subtitle: 'Nourishing Body Oil with Warm Moroccan Amber',
+    category: 'Body Care',
+    collection: 'The Argan Collection',
+    price: 380,
+    size: '100 ml / 3.4 fl. oz.',
+    tone: 'amber',
+    image: '/images/argan_elixir.png',
+    description: 'A velvet dry oil spray that envelops body skin in moisture and seductive notes of warm amber, vanilla resin, and Moroccan cedarwood.',
+    texture: 'Silky dry oil mist spray.',
+    ingredients: ['Cold-Pressed Argan Oil', 'Jojoba Oil', 'Warm Amber Fragrance Accord', 'Vitamin E'],
+    howTo: 'Spray onto clean damp skin after shower and massage gently until absorbed.',
+    benefits: ['Smooths dry flaky skin', 'Long-lasting sensual aroma', 'Instant satin skin sheen'],
+    rating: 4.92,
+    reviewCount: 165
+  },
+  {
+    id: 'desert-date-retinol-balm',
+    name: 'Desert Date & Bio-Retinol Sculpting Face Balm',
+    subtitle: 'Wild Saharan Desert Date Oil & Bakuchiol 2%',
+    category: 'Skincare',
+    collection: 'GAOUAHER Signature',
+    price: 640,
+    originalPrice: 720,
+    size: '50 ml / 1.7 fl. oz.',
+    tone: 'clay',
+    image: '/images/ghassoul_mask.png',
+    description: 'Housed in a heavy frosted terracotta glass vessel with matte wood cap. Harnesses wild desert date seed lipids rich in essential phytosterols to sculpt facial contours overnight.',
+    texture: 'Velvet cushioned sculpting balm that transforms into barrier silk.',
+    ingredients: ['Saharan Desert Date Seed Oil', 'Bakuchiol (Bio-Retinol 2%)', 'Cold-Pressed Rosehip Extract', 'Ceramide Complex'],
+    howTo: 'Warm a pea-sized amount between fingertips. Massage into jawline, cheekbones, and forehead in upward sculpting strokes before sleep.',
+    benefits: ['Visibly lifts & firms skin contours', 'Natural bio-retinol renewal without irritation', 'Replenishes lost nocturnal lipids'],
+    rating: 4.98,
+    reviewCount: 174,
+    badge: 'Modern Icon',
+    isNew: true,
+    isFeatured: true
+  },
+  {
+    id: 'majorelle-blue-glow-drops',
+    name: 'Majorelle Blue Mineral Glow Drops',
+    subtitle: 'Saharan Indigo Stone Extract & Squalane Concentrate',
+    category: 'Face Care',
+    collection: 'The Majorelle Collection',
+    price: 480,
+    size: '30 ml / 1.0 fl. oz.',
+    tone: 'blue',
+    image: '/images/argan_elixir.png',
+    description: 'Enclosed in an opaque cobalt blue glass dropper flask. Infused with micro-filtered Saharan Nila stone minerals to illuminate tired skin and target dull tone.',
+    texture: 'Weightless luminous blue elixir drops.',
+    ingredients: ['Opaque Saharan Nila Indigo Mineral', 'Sugarcane Squalane 98%', 'Vitamin C Ester', 'Blue Tansy Oil'],
+    howTo: 'Dispense 3-4 drops directly onto face prior to cream. Press gently into cheekbones and forehead.',
+    benefits: ['Instant luminous blue glass glow', 'Calms redness & sun fatigue', 'Plumps cellular barrier with lipids'],
+    rating: 4.96,
+    reviewCount: 128,
+    badge: 'New Formula',
+    isNew: true,
+    isFeatured: true
+  }
+];
+
+export const formatMad = (n: number) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'decimal',
+    maximumFractionDigits: 0
+  }).format(n) + ' MAD';
+};
