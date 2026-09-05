@@ -1,0 +1,224 @@
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\youch\\node_modules\\@speed-highlight\\core',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\youch\node_modules\@speed-highlight\core\dist\languages'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\youch\\node_modules\\@speed-highlight\\core\\dist\\languages'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\youch\\node_modules\\@speed-highlight\\core',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\youch\node_modules\@speed-highlight\core\dist\languages'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\youch\\node_modules\\@speed-highlight\\core\\dist\\languages'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\typescript',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\typescript\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\typescript\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\typescript',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\typescript\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\typescript\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\ajv',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\ajv\dist\vocabularies\jtd'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\ajv\\dist\\vocabularies\\jtd'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\ajv',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\ajv\dist\vocabularies\jtd'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\ajv\\dist\\vocabularies\\jtd'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\@unpic\\core\\node_modules\\unpic',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\@unpic\core\node_modules\unpic\script\src'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\@unpic\\core\\node_modules\\unpic\\script\\src'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\@unpic\\core\\node_modules\\unpic',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\@unpic\core\node_modules\unpic\esm\src'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\@unpic\\core\\node_modules\\unpic\\esm\\src'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\date-fns',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\date-fns\locale'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\date-fns\\locale'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\webpack',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\webpack\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\webpack\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\date-fns',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\date-fns\locale'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\date-fns\\locale'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\webpack',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\webpack\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\webpack\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\esbuild',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\esbuild'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\hono',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\hono\dist\cjs\middleware'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\hono\\dist\\cjs\\middleware'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\hono',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\hono\dist\cjs\middleware'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\hono\\dist\\cjs\\middleware'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\miniflare',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\miniflare\dist'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\miniflare\\dist'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\miniflare',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\miniflare\dist'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\miniflare\\dist'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\zod',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\shadcn\node_modules\zod\src\v4'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\zod\\src\\v4'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\shadcn\node_modules\@dotenvx\dotenvx'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\@dotenvx\\dotenvx'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\@dotenvx',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\shadcn\node_modules\@dotenvx\dotenvx'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\@dotenvx\\dotenvx'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\shadcn\node_modules\@dotenvx\dotenvx'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\@dotenvx\\dotenvx'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\shadcn\node_modules\@dotenvx\dotenvx'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\shadcn\\node_modules\\@dotenvx\\dotenvx'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\vinext',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\vinext\dist\deps\.pnpm\am-i-vibing@0.5.0'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\vinext\\dist\\deps\\.pnpm\\am-i-vibing@0.5.0'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\vinext',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\vinext\dist'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Yacin\\Desktop\\DEV\\projects\\FORHER COSMITIC\\node_modules\\vinext\\dist'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ENOTEMPTY
+npm error syscall rmdir
+npm error path C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\@unpic\core\node_modules\unpic\esm
+npm error errno -4051
+npm error ENOTEMPTY: directory not empty, rmdir 'C:\Users\Yacin\Desktop\DEV\projects\FORHER COSMITIC\node_modules\@unpic\core\node_modules\unpic\esm'
+npm error A complete log of this run can be found in: C:\Users\Yacin\AppData\Local\npm-cache\_logs\2026-09-05T15_24_25_612Z-debug-0.log
