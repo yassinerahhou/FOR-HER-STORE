@@ -10,6 +10,7 @@ export default function CheckoutPage() {
   const { cart, cartTotal, clearCart } = useCart();
   const [submitted, setSubmitted] = useState(false);
   const [orderRef, setOrderRef] = useState('');
+  const [promoCode, setPromoCode] = useState('');
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -20,11 +21,18 @@ export default function CheckoutPage() {
     paymentMethod: 'cod',
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const discount = promoCode.trim().toUpperCase() === 'GAOUAHER10' ? Math.round(cartTotal * 0.1) : 0;
+  const delivery = cartTotal >= 500 ? 0 : 40;
+  const total = Math.max(0, cartTotal - discount + delivery);
+
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (cart.length === 0) return;
 
     const ref = `GAO-${Math.floor(100000 + Math.random() * 900000)}`;
+    const items = cart.map(({ product, quantity }) => `- ${product.name} × ${quantity}: ${formatMad(product.price * quantity)}`).join('\n');
+    const body = [`Order reference: ${ref}`, '', `Customer: ${formData.fullName}`, `Email: ${formData.email}`, `Phone: ${formData.phone}`, `City: ${formData.city}`, `Address: ${formData.address}`, '', 'Items:', items, '', `Subtotal: ${formatMad(cartTotal)}`, `Discount: ${formatMad(discount)}`, `Delivery: ${delivery === 0 ? 'Complimentary' : formatMad(delivery)}`, `Total: ${formatMad(total)}`, 'Payment: Cash on Delivery'].join('\n');
+    window.location.href = `mailto:concierge@gaouaher.ma?subject=${encodeURIComponent(`New Gaouaher COD order ${ref}`)}&body=${encodeURIComponent(body)}`;
     setOrderRef(ref);
     setSubmitted(true);
     clearCart();
@@ -39,11 +47,11 @@ export default function CheckoutPage() {
           </div>
 
           <span className="text-xs font-mono uppercase tracking-widest text-[#b87760] block font-bold">
-            Order Confirmed #{orderRef}
+            Order request #{orderRef}
           </span>
 
           <h1 className="font-serif text-3xl sm:text-4xl text-[#252525] font-normal leading-tight">
-            Shukran! Your Luxury Order is Reserved.
+            Your order request is ready to send.
           </h1>
 
           <p className="text-sm font-sans text-[#252525]/80 leading-relaxed">
@@ -73,7 +81,7 @@ export default function CheckoutPage() {
       <div className="space-y-1 border-b border-[#252525]/10 pb-4">
         <div className="flex items-center gap-2 text-xs font-mono text-[#b87760] uppercase tracking-wider">
           <Lock className="w-3.5 h-3.5" />
-          <span>128-Bit Encrypted Moroccan Checkout</span>
+              <span>Morocco Cash on Delivery checkout</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-normal text-[#252525]">Secure Checkout</h1>
       </div>
@@ -196,20 +204,7 @@ export default function CheckoutPage() {
                   <span className="text-xs font-mono text-[#b87760] font-bold">POPULAR</span>
                 </label>
 
-                <label className="p-4 rounded-none border border-[#252525]/15 flex items-center justify-between cursor-pointer opacity-70">
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="radio"
-                      name="pm"
-                      checked={formData.paymentMethod === 'card'}
-                      onChange={() => setFormData({ ...formData, paymentMethod: 'card' })}
-                    />
-                    <div>
-                      <span className="font-bold text-sm text-[#252525]">Credit / Debit Card (Visa, Mastercard)</span>
-                      <span className="text-xs text-[#252525]/60 block">128-bit SSL encrypted online payment</span>
-                    </div>
-                  </div>
-                </label>
+                <p className="text-xs text-[#252525]/60">Card payments are not collected on this website.</p>
               </div>
 
               <button
@@ -240,6 +235,13 @@ export default function CheckoutPage() {
 
               <hr className="border-[#252525]/10" />
 
+              <div className="space-y-2">
+                <label htmlFor="promoCode" className="text-xs font-mono uppercase text-[#252525]/70">Promo code</label>
+                <input id="promoCode" value={promoCode} onChange={(e) => setPromoCode(e.target.value)} placeholder="GAOUAHER10" className="w-full border border-[#252525]/20 bg-white px-3 py-2 text-sm uppercase focus:outline-none focus:border-[#b87760]" />
+                {promoCode && discount === 0 && <p className="text-xs text-[#b87760]">This code is not recognised.</p>}
+                {discount > 0 && <p className="text-xs text-[#b87760]">GAOUAHER10 applied: 10% off.</p>}
+              </div>
+
               <div className="space-y-2 text-xs font-mono">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
@@ -247,11 +249,12 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between">
                   <span>Delivery in Morocco</span>
-                  <span className="text-[#b87760] font-bold">Complimentary</span>
+                  <span className="text-[#b87760] font-bold">{delivery === 0 ? 'Complimentary' : formatMad(delivery)}</span>
                 </div>
+                {discount > 0 && <div className="flex justify-between"><span>Gaouaher Circle discount</span><span className="text-[#b87760] font-bold">−{formatMad(discount)}</span></div>}
                 <div className="flex justify-between text-base font-serif font-bold text-[#252525] pt-2 border-t border-[#252525]/10">
                   <span>Total</span>
-                  <span>{formatMad(cartTotal)}</span>
+                  <span>{formatMad(total)}</span>
                 </div>
               </div>
             </div>
@@ -263,4 +266,3 @@ export default function CheckoutPage() {
     </div>
   );
 }
-

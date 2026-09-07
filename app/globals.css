@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&family=Prata&family=Tenor+Sans&display=swap');
 @import "tailwindcss";
 
 :root {
-  --ink: #252525;
-  --ink-dark: #1c1c1c;
-  --paper: #fffdf9;
-  --alabaster: #f9f7f2;
-  --card-bg: #f5f3ed;
-  --sand: #e6e3da;
-  --sand-dark: #dedad2;
-  --terracotta: #b87760;
-  --terracotta-soft: #d6a190;
-  --line: rgba(37, 37, 37, 0.15);
-  --line-dark: rgba(37, 37, 37, 0.35);
+  --ink: #1a1917;
+  --ink-dark: #11110f;
+  --paper: #fbfaf7;
+  --alabaster: #f4f1e9;
+  --card-bg: #efebe2;
+  --sand: #dfd8ca;
+  --sand-dark: #cfc4b1;
+  --terracotta: #9d6a45;
+  --terracotta-soft: #c39b77;
+  --line: rgba(26, 25, 23, 0.14);
+  --line-dark: rgba(26, 25, 23, 0.32);
 }
 
 * {
@@ -24,7 +24,7 @@ html, body {
   padding: 0;
   background-color: var(--paper);
   color: var(--ink);
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -32,19 +32,54 @@ html, body {
 
 /* Luxury Typography Classes */
 .font-serif {
-  font-family: 'Marcellus', 'Cinzel', Georgia, serif;
+  font-family: 'Prata', Georgia, serif;
+  letter-spacing: -0.01em;
 }
 
 .font-cinzel {
-  font-family: 'Cinzel', serif;
+  font-family: 'Prata', Georgia, serif;
 }
 
 .font-mono {
-  font-family: 'Space Mono', monospace;
+  font-family: 'DM Mono', monospace;
 }
 
 .font-sans {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+/* Reserved for sensorial product stories: airy, precise, and recognisable at a glance. */
+.font-cosmetic {
+  font-family: 'Prata', Georgia, serif;
+  letter-spacing: -0.012em;
+}
+
+/* The wordmark deliberately retains the house face, independent of editorial type. */
+.brand-mark-container .brand-wordmark { font-family: 'Marcellus', Georgia, serif; }
+
+/* Details that make the commerce UI feel measured, not mass-market. */
+.font-serif, .font-cosmetic { text-wrap: balance; }
+@media (min-width: 768px) {
+  .font-serif { line-height: 1.04; }
+}
+
+::selection { background: var(--terracotta); color: white; }
+
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+/* A light paper grain keeps large neutral fields tactile rather than template-flat. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: .022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
 /* Scrollbar Customization */

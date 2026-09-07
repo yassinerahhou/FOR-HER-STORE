@@ -4,14 +4,10 @@ import path from 'node:path';
 const file = path.join(process.cwd(), 'node_modules', 'vinext', 'dist', 'routing', 'file-matcher.js');
 if (fs.existsSync(file)) {
   let content = fs.readFileSync(file, 'utf8');
-  if (content.includes('import { glob } from "node:fs/promises"')) {
-    content = content.replace(
-      'import { glob } from "node:fs/promises";',
-      'import { existsSync, readdirSync, statSync } from "node:fs"; import { join, relative } from "node:path";'
-    );
-    content = content.replace(
-      /async function\* scanWithExtensions[\s\S]*?\}\n\}/,
-      `async function* scanWithExtensions(stem, cwd, extensions, exclude) {
+  content = content.replace(
+    /async function\* scanWithExtensions[\s\S]*?\}\n\}/,
+    `async function* scanWithExtensions(stem, cwd, extensions, exclude) {
+	const targetBase = stem.includes("/") ? stem.split("/").pop() : stem;
 	function* walk(dir) {
 		let files;
 		try { files = readdirSync(dir); } catch { return; }
@@ -24,15 +20,19 @@ if (fs.existsSync(file)) {
 				if (stat.isDirectory()) { yield* walk(full); }
 				else if (stat.isFile()) {
 					const ext = f.split(".").pop();
-					if (extensions.includes(ext)) { yield rel; }
+					const nameNoExt = f.substring(0, f.lastIndexOf("."));
+					if (extensions.includes(ext) && nameNoExt === targetBase) { yield rel; }
 				}
 			} catch {}
 		}
 	}
 	yield* walk(cwd);
 }`
-    );
-    fs.writeFileSync(file, content, 'utf8');
-    console.log('Patched vinext file-matcher.js for Node.js compatibility.');
-  }
+  );
+  fs.writeFileSync(file, content, 'utf8');
+  console.log('Patched vinext file-matcher.js for Node.js compatibility.');
 }
+
+
+
+

@@ -9,9 +9,12 @@ export function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubscribe = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email) {
+      const subject = encodeURIComponent('Gaouaher Circle newsletter signup');
+      const body = encodeURIComponent(`Please add this email address to the Gaouaher Circle: ${email}`);
+      window.location.href = `mailto:concierge@gaouaher.ma?subject=${subject}&body=${body}`;
       setSubscribed(true);
       setEmail('');
       setTimeout(() => setSubscribed(false), 6000);
@@ -38,7 +41,7 @@ export function Footer() {
               <span className="text-xs font-mono uppercase tracking-widest text-[#b87760]">The Gaouāher Circle</span>
             </div>
             <h3 className="font-serif text-xl lg:text-2xl text-white font-normal">
-              Subscribe for VIP product drops & receive 10% off your first luxury order.
+              Notes from the house, and first access to new editions.
             </h3>
 
             {subscribed ? (
@@ -101,9 +104,9 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#b87760]">Customer Service</h4>
             <ul className="space-y-2.5 text-white/75 text-xs font-sans">
-              <li><Link href="/help" className="hover:underline transition-colors">Morocco Shipping & Delivery</Link></li>
-              <li><Link href="/help" className="hover:underline transition-colors">Cash on Delivery Info</Link></li>
-              <li><Link href="/help" className="hover:underline transition-colors">Returns & Guarantee</Link></li>
+              <li><Link href="/policies#shipping" className="hover:underline transition-colors">Morocco Shipping & Delivery</Link></li>
+              <li><Link href="/policies#payment" className="hover:underline transition-colors">Cash on Delivery Info</Link></li>
+              <li><Link href="/policies#returns" className="hover:underline transition-colors">Returns & Guarantee</Link></li>
               <li><Link href="/help" className="hover:underline transition-colors">FAQ & Support</Link></li>
             </ul>
           </div>
@@ -113,8 +116,8 @@ export function Footer() {
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#b87760]">The House</h4>
             <ul className="space-y-2.5 text-white/75 text-xs font-sans">
               <li><Link href="/about" className="hover:underline transition-colors">Brand Story & Philosophy</Link></li>
-              <li><Link href="/about" className="hover:underline transition-colors">Moroccan Sourcing Ethics</Link></li>
-              <li><Link href="/about" className="hover:underline transition-colors">Cruelty-Free Commitment</Link></li>
+              <li><Link href="/policies#privacy" className="hover:underline transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/policies#terms" className="hover:underline transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
@@ -147,7 +150,7 @@ export function Footer() {
 
           <div className="flex items-center gap-3">
             <span className="bg-[#252525] text-[#b87760] px-2.5 py-1 text-[10px] border border-[#b87760]/30 font-bold">
-              CASH ON DELIVERY
+              PAY ON DELIVERY
             </span>
             <span className="bg-[#252525] text-white px-2.5 py-1 text-[10px] border border-white/20">
               VISA
@@ -164,4 +167,3 @@ export function Footer() {
     </footer>
   );
 }
-

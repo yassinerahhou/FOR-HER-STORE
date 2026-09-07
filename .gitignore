@@ -42,3 +42,5 @@ next-env.d.ts
 .site-package-2/
 *.cjs
 
+
+.vercel

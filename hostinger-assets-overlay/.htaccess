@@ -1,0 +1,12 @@
+Options -MultiViews
+RewriteEngine On
+
+# Some shared-hosting file managers omit folders whose names begin with an
+# underscore. The deployment package keeps a second copy in /assets.
+RewriteRule ^_next/(.*)$ assets/_next/$1 [L]
+
+# Serve Vinext's static .html exports at their clean application URLs.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]

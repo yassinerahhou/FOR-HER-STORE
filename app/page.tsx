@@ -59,7 +59,7 @@ export default function Home() {
 
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.05] text-[#252525]">
               Centuries of Atlas wisdom. <br />
-              <span className="italic text-[#b87760]">Elevated into science.</span>
+              <span className="italic text-[#b87760]">Composed for now.</span>
             </h1>
 
             <p className="text-base sm:text-lg font-sans text-[#252525]/85 max-w-lg leading-relaxed">
@@ -71,14 +71,14 @@ export default function Home() {
                 href="/shop"
                 className="bg-[#252525] hover:bg-[#1c1c1c] text-white font-mono text-xs tracking-widest uppercase font-bold py-4 px-8 rounded-none transition-all flex items-center gap-3 shadow-md hover:shadow-lg"
               >
-                Explore Signature Catalog <ArrowRight className="w-4 h-4 text-[#b87760]" />
+                Enter the collection <ArrowRight className="w-4 h-4 text-[#b87760]" />
               </Link>
 
               <Link
                 href="/shop?category=Moroccan%20Beauty"
                 className="border border-[#252525]/30 hover:border-[#252525] text-[#252525] font-mono text-xs tracking-widest uppercase py-4 px-8 rounded-none transition-all hover:bg-[#252525]/5 font-bold"
               >
-                Heritage Rituals
+                Discover the rituals
               </Link>
             </div>
 
@@ -239,7 +239,7 @@ export default function Home() {
               Iconic Maison Hero Formula
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#252525]">
+            <h2 className="font-cosmetic text-4xl sm:text-5xl lg:text-6xl font-normal text-[#252525] leading-[0.95]">
               Hold light. <br />
               <span className="italic text-[#b87760]">Let skin keep it.</span>
             </h2>
@@ -468,7 +468,7 @@ export default function Home() {
               The Gaouāher Signature Catalog
             </h2>
             <p className="text-xs font-mono text-[#252525]/60">
-              Thoughtful formulas built to earn a permanent place in your daily ritual.
+              Essential formulas for a ritual that is entirely your own.
             </p>
 
             {/* Interactive Category Filter Tabs */}
@@ -634,7 +634,30 @@ export default function Home() {
       {/* 9. VERIFIED CUSTOMER REVIEWS & PRESS CITATIONS */}
       <ReviewsSection />
 
-      {/* 10. LUXURY SERVICE GUARANTEE STRIP */}
+      {/* 10. PRIVATE RITUAL CONSULTATION */}
+      <section className="bg-[#1a1917] text-white px-6 lg:px-12 py-20 border-b border-white/10">
+        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-7 space-y-5">
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#c39b77]">The ritual desk</span>
+            <h2 className="font-cosmetic text-4xl sm:text-5xl lg:text-6xl leading-[0.96] max-w-2xl">
+              A considered routine begins with a conversation.
+            </h2>
+          </div>
+          <div className="lg:col-span-5 border-l border-white/15 lg:pl-10 space-y-6">
+            <p className="text-sm leading-7 text-white/70 max-w-md">
+              Tell us how your skin, hair, or senses are feeling. We will point you toward a ritual that fits—without a shelf full of unnecessary steps.
+            </p>
+            <Link
+              href="/help"
+              className="inline-flex items-center gap-3 border border-[#c39b77] px-6 py-3.5 text-[11px] font-mono font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#c39b77] hover:text-[#1a1917]"
+            >
+              Begin a private consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. LUXURY SERVICE GUARANTEE STRIP */}
       <section className="py-16 px-6 lg:px-12 bg-[#fffdf9] border-b border-[#252525]/15">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-xs font-mono">
           <div className="p-6 bg-[#f5f3ed] border border-[#252525]/10 space-y-2">

@@ -6,12 +6,12 @@ import { usePathname } from 'next/navigation';
 import { BrandMark } from './brand-mark';
 import { categories } from '@/lib/products';
 import { useCart } from '@/lib/cart-context';
-import { Search, ShoppingBag, Heart, Menu, X, Globe } from 'lucide-react';
+import { Search, Menu, X, Globe } from 'lucide-react';
 
 export function Header() {
   const pathname = usePathname();
   const { cartCount, wishlist, setCartOpen, setSearchOpen, currency, setCurrency } = useCart();
-  const [scrolled, setScrolled] = useState(false);
+  const [, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full transition-all duration-300 bg-[#fffdf9] border-b border-[#252525]/15">
       
       {/* 1. Top Announcement Bar (Aesop Dark Charcoal Bar) */}
-      <div className="bg-[#252525] text-white text-xs font-sans py-2.5 px-4 text-center tracking-normal font-normal">
-        <span>Receive a generous Damask Rose & Cold-Pressed Argan Sample with orders over 500 MAD. Free Morocco Delivery.</span>
+      <div className="bg-[#1a1917] text-white text-[11px] font-mono py-2.5 px-4 text-center tracking-[0.08em] uppercase">
+        <span>Complimentary delivery in Morocco · Rose hydrosol sample with orders over 500 MAD</span>
       </div>
 
       {/* 2. Top Tier Header (Aesop Layout: Stores / Customer Service | Logo | Email / Account / Cart) */}
@@ -53,17 +53,18 @@ export function Header() {
 
         {/* Left Utility Links (Stores / Customer service) */}
         <div className="hidden lg:flex items-center gap-7 text-xs font-sans font-medium text-[#252525]">
-          <Link href="/help" className="hover:underline transition-all">
-            Stores
+          <Link href="/about" className="hover:underline transition-all">
+            The House
           </Link>
           <Link href="/help" className="hover:underline transition-all">
             Customer service
           </Link>
-          <div className="flex items-center gap-1 text-[#252525]/70 pl-3 border-l border-[#252525]/20">
+          <span className="text-[#252525]/70 pl-3 border-l border-[#252525]/20 font-mono">{currency}</span>
+          <div className="hidden">
             <Globe className="w-3.5 h-3.5" />
             <select
               value={currency}
-              onChange={(e: any) => setCurrency(e.target.value)}
+              onChange={(event) => setCurrency(event.target.value as 'MAD' | 'EUR' | 'USD')}
               className="bg-transparent text-[#252525] font-mono text-xs focus:outline-none cursor-pointer"
             >
               <option value="MAD">MAD (MAD)</option>
@@ -81,7 +82,7 @@ export function Header() {
         {/* Right Action Links (Email sign up / Account / My cart) */}
         <div className="flex items-center gap-6 text-xs font-sans text-[#252525]">
           <Link href="/about" className="hidden sm:inline font-medium hover:underline text-[#252525]">
-            Email sign up
+            Our story
           </Link>
 
           <Link href="/saved" className="hidden sm:flex items-center gap-1 font-medium hover:underline text-[#252525]">
@@ -98,7 +99,7 @@ export function Header() {
             onClick={() => setCartOpen(true)}
             className="flex items-center gap-1.5 font-medium hover:underline text-[#252525]"
           >
-            <span>My cart ({cartCount})</span>
+            <span>Bag ({cartCount})</span>
           </button>
         </div>
       </div>
@@ -223,12 +224,11 @@ export function Header() {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-[#252525]/15 text-center font-serif text-2xl text-[#252525]">
-            Gaouāher
+          <div className="pt-6 border-t border-[#252525]/15 text-center flex justify-center">
+            <BrandMark variant="compact" />
           </div>
         </div>
       )}
     </header>
   );
 }
-
